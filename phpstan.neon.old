@@ -1,0 +1,14 @@
+includes:
+    - ./vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: max # Nível máximo de análise (0-8 ou max)
+    paths:
+        - app
+        - routes
+        - database
+    ignoreErrors:
+        # Ignore erros em pacotes externos, se necessário
+        - message: "#Call to an undefined method|Property#"
+          paths:
+            - %currentWorkingDirectory%/vendor/*
